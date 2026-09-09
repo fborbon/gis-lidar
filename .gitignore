@@ -1,0 +1,16 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.env
+
+# Raw downloaded data is large and easily re-fetched by the ingestion scripts -
+# only the small derived artifacts under data/processed/ are committed.
+data/raw/lidar/*.laz
+data/raw/osm/*.json
+data/raw/sentinel2/*.json
+
+.pytest_cache/
+.ruff_cache/
+*.log

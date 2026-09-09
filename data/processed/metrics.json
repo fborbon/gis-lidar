@@ -1,0 +1,61 @@
+{
+  "aoi": {
+    "resolution_m": 2.0,
+    "grid_shape": [
+      327,
+      311
+    ]
+  },
+  "n_train_pixels": 76191,
+  "n_test_pixels": 25506,
+  "feature_importances": {
+    "ndsm": 0.39790151801648393,
+    "ndvi": 0.4519690135528093,
+    "slope": 0.032407732051282466,
+    "texture": 0.11772173637942429
+  },
+  "pixel_metrics": {
+    "random_forest_multimodal": {
+      "precision": 0.7928884395011796,
+      "recall": 0.8018064076346285,
+      "f1": 0.7973224877139466,
+      "iou": 0.6629561786670424,
+      "accuracy": 0.9062181447502549,
+      "tp": 4705,
+      "fp": 1229,
+      "fn": 1163,
+      "tn": 18409
+    },
+    "ndvi_only_baseline": {
+      "precision": 0.7726176115802171,
+      "recall": 0.43660531697341515,
+      "f1": 0.5579268292682927,
+      "iou": 0.386892177589852,
+      "accuracy": 0.840821767427272,
+      "tp": 2562,
+      "fp": 754,
+      "fn": 3306,
+      "tn": 18884
+    },
+    "ndsm_only_baseline": {
+      "precision": 0.3567986335631062,
+      "recall": 0.9967620995228357,
+      "f1": 0.525493014689367,
+      "iou": 0.35638557153302464,
+      "accuracy": 0.5858621500823336,
+      "tp": 5849,
+      "fp": 10544,
+      "fn": 19,
+      "tn": 9094
+    }
+  },
+  "polygon_metrics": {
+    "n_gt": 74,
+    "n_pred": 72,
+    "n_matched": 33,
+    "detection_rate": 0.44594594594594594,
+    "mean_matched_iou": 0.613327992323165,
+    "mean_area_error_pct": 36.118325076223336,
+    "mean_centroid_disp_m": 6.523444777687058
+  }
+}

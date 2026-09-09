@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "error_type": "false_positive",
+      "ndsm_m": 9.0,
+      "ndvi": 0.21,
+      "slope_deg": 1.04,
+      "explanation": "The false positive likely occurred due to the relatively low normalized surface height (nDSM) of 9.00 m, which might be near the classifier's threshold for distinguishing buildings from non-buildings. Additionally, the low NDVI value of 0.21 suggests sparse vegetation, which could cause the classifier to misinterpret the area as built-up rather than natural terrain. The gentle terrain slope of 1.0 degree further supports this, as it is unlikely to cause significant misclassification on its own."
+    },
+    {
+      "error_type": "false_negative",
+      "ndsm_m": 9.68,
+      "ndvi": 0.65,
+      "slope_deg": 7.71,
+      "explanation": "The false negative is likely due to the moderate NDVI value of 0.65, indicating a significant presence of vegetation which may have confused the classifier, making it difficult to distinguish the building from the surrounding vegetation. Additionally, the terrain slope of 7.7 degrees might have contributed to the error by causing distortions in the LiDAR data, further complicating the classification."
+    },
+    {
+      "error_type": "false_negative",
+      "ndsm_m": 12.85,
+      "ndvi": 0.43,
+      "slope_deg": 1.57,
+      "explanation": "The false negative classification is likely due to the moderate normalized surface height (nDSM) of 12.85 m, which may be near the threshold for building detection, combined with a relatively low NDVI of 0.43 indicating moderate vegetation cover that could obscure building features. Additionally, the gentle terrain slope of 1.6 degrees might reduce the distinctness of building structures in the LiDAR data."
+    }
+  ],
+  "usage": {
+    "inputTokens": 355,
+    "outputTokens": 268
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "topic": "CRS/Projections",
+      "question": "What is the difference between a geographic coordinate system and a projected coordinate system?",
+      "nova_answer": "A geographic coordinate system (GCS) uses latitude and longitude to define locations on the Earth's surface in a three-dimensional space, referenced to the ellipsoid model of the Earth. In contrast, a projected coordinate system (PCS) transforms the curved surface of the Earth into a flat, two-dimensional surface using specific projections, which minimizes distortion for specific areas or purposes."
+    },
+    {
+      "id": 2,
+      "topic": "CRS/Projections",
+      "question": "Why can EPSG:4326 (WGS84) coordinates not be used directly for area or distance calculations in meters?",
+      "nova_answer": "EPSG:4326 (WGS84) coordinates represent geographic latitude and longitude, which are angular measurements and not linear. Therefore, distances and areas calculated directly from these coordinates would be inaccurate because they do not account for the Earth's curvature and the distortion that occurs when projecting a spherical or ellipsoidal surface onto a flat plane."
+    },
+    {
+      "id": 3,
+      "topic": "Raster vs Vector",
+      "question": "What is the fundamental difference between raster and vector spatial data models, and when would you prefer one over the other?",
+      "nova_answer": "The fundamental difference between raster and vector spatial data models lies in their representation of geographic data: raster data uses a grid of cells to store values (e.g., elevation, temperature), while vector data employs points, lines, and polygons to represent discrete objects. Vector data is preferred for precise boundary representation and attribute-rich information, whereas raster data is better suited for continuous data and seamless integration with imagery."
+    },
+    {
+      "id": 4,
+      "topic": "GeoTIFF/COG",
+      "question": "What makes a Cloud-Optimized GeoTIFF (COG) different from a regular GeoTIFF, and why does that matter for cloud-based analysis?",
+      "nova_answer": "A Cloud-Optimized GeoTIFF (COG) differs from a regular GeoTIFF by incorporating tiled structure and efficient compression, such as JPEG2000 or DEFLATE, which allows for faster data access and streaming, significantly enhancing performance in cloud-based analysis by enabling rapid subsetting and parallel processing. This optimization is crucial for handling large datasets efficiently in cloud environments."
+    },
+    {
+      "id": 5,
+      "topic": "NDVI",
+      "question": "How is NDVI calculated, and what does a value close to zero versus close to one indicate?",
+      "nova_answer": "NDVI (Normalized Difference Vegetation Index) is calculated using the formula (NIR - Red) / (NIR + Red), where NIR is the near-infrared and Red is the visible red light reflected from vegetation. A value close to zero typically indicates non-vegetative surfaces like water or bare soil, while a value close to one indicates dense, healthy vegetation."
+    },
+    {
+      "id": 6,
+      "topic": "SAR vs Optical",
+      "question": "What are the main advantages of SAR imagery over optical imagery for remote sensing, and what is one major drawback?",
+      "nova_answer": "SAR imagery offers the advantages of all-weather and day-night imaging capabilities, providing high-resolution data that is effective through cloud cover and darkness. It is also sensitive to surface roughness and moisture content, which is beneficial for applications like land cover classification and monitoring. However, one major drawback is its relatively complex data interpretation and processing requirements compared to optical imagery."
+    },
+    {
+      "id": 7,
+      "topic": "SAR",
+      "question": "What causes speckle noise in SAR imagery, and how is it typically mitigated?",
+      "nova_answer": "Speckle noise in SAR imagery arises from coherent interference of backscattered signals from various scatterers within a resolution cell. It is typically mitigated using filters such as Lee, Frost, or wavelet-based methods, which smooth the image while preserving edges."
+    },
+    {
+      "id": 8,
+      "topic": "DSM/DTM/DEM",
+      "question": "Explain the difference between a DTM, a DSM, and a DEM.",
+      "nova_answer": "A Digital Terrain Model (DTM) represents the bare earth surface, excluding any objects like buildings or vegetation. A Digital Surface Model (DSM) includes all surfaces, such as buildings and vegetation, providing a comprehensive view of the Earth's surface. A Digital Elevation Model (DEM) is a type of DTM that specifically quantifies the elevation of the terrain."
+    },
+    {
+      "id": 9,
+      "topic": "nDSM",
+      "question": "What is a normalized Digital Surface Model (nDSM) and how is it computed from a DSM and DTM?",
+      "nova_answer": "A normalized Digital Surface Model (nDSM) is a raster dataset that separates ground and non-ground surface elements by subtracting a Digital Terrain Model (DTM) from a Digital Surface Model (DSM). It is computed by performing a pixel-wise subtraction of the DTM from the DSM, resulting in a model that highlights the height of above-ground features such as buildings and vegetation."
+    },
+    {
+      "id": 10,
+      "topic": "Photogrammetry",
+      "question": "What is orthorectification and why is it a necessary step before mosaicking aerial or satellite imagery?",
+      "nova_answer": "Orthorectification is the process of correcting aerial or satellite imagery to account for sensor movement and terrain-induced distortions, ensuring that the imagery accurately represents the Earth's surface in a uniform projection. It is a necessary step before mosaicking because it aligns and standardizes the geometric integrity of individual image tiles, which is crucial for creating a seamless and accurate composite image."
+    },
+    {
+      "id": 11,
+      "topic": "Photogrammetry",
+      "question": "How does photogrammetric structure-from-motion differ from LiDAR for generating a digital surface model?",
+      "nova_answer": "Photogrammetric structure-from-motion (SfM) uses overlapping images to triangulate point positions, creating a dense point cloud and subsequently a digital surface model (DSM), while LiDAR employs laser pulses to directly measure distances to the Earth's surface, providing a more accurate and direct representation of the terrain. SfM is generally less expensive but can be less precise compared to LiDAR."
+    },
+    {
+      "id": 12,
+      "topic": "Resolution",
+      "question": "Explain the difference between spatial, temporal, and spectral resolution in the context of a satellite sensor.",
+      "nova_answer": "Spatial resolution refers to the smallest object that can be detected on the Earth's surface, measured in meters per pixel. Temporal resolution indicates how frequently a satellite revisits the same location to capture data, typically in days. Spectral resolution denotes the sensor's ability to distinguish between different wavelengths of light, influencing the detail in the spectral information obtained."
+    },
+    {
+      "id": 13,
+      "topic": "Resolution",
+      "question": "Why might a sensor with coarser spatial resolution but finer temporal resolution be preferred for agricultural monitoring?",
+      "nova_answer": "A sensor with coarser spatial resolution but finer temporal resolution might be preferred for agricultural monitoring to capture frequent changes in crop conditions and growth stages over time, which is crucial for timely decision-making in crop management. This allows for more frequent updates on crop health, stress detection, and growth patterns, despite the lower detail in individual observations."
+    },
+    {
+      "id": 14,
+      "topic": "Segmentation/Detection",
+      "question": "What is the difference between semantic segmentation and instance segmentation in the context of extracting building footprints from imagery?",
+      "nova_answer": "Semantic segmentation classifies each pixel in an image into predefined categories, such as \"building\" or \"non-building,\" without distinguishing between individual objects, while instance segmentation not only classifies pixels but also differentiates between multiple instances of the same category, enabling the delineation of individual building footprints."
+    },
+    {
+      "id": 15,
+      "topic": "Segmentation/Detection",
+      "question": "Why is pixel-level accuracy an insufficient metric for evaluating a building extraction model, and what polygon-level metrics would you use instead?",
+      "nova_answer": "Pixel-level accuracy is insufficient for building extraction models because it does not account for the spatial arrangement and connectivity of pixels that form buildings. Instead, polygon-level metrics such as overall accuracy, precision, recall, and the F1 score should be used to evaluate how well the extracted building polygons match the reference data."
+    },
+    {
+      "id": 16,
+      "topic": "Spatial Joins",
+      "question": "What is a spatial join, and how does an intersects join differ from a within join?",
+      "nova_answer": "A spatial join is a GIS operation that combines attributes from one feature layer to another based on their spatial relationship. An \"intersects\" join identifies features that overlap or touch each other, while a \"within\" join identifies features that are completely contained within another feature."
+    },
+    {
+      "id": 17,
+      "topic": "Topology",
+      "question": "In GIS, what does topology mean, and what is a common topological error in a building footprint dataset?",
+      "nova_answer": "In GIS, topology refers to the arrangement of geographic features in relation to one another, defining how they connect, adjacency, and proximity. A common topological error in a building footprint dataset is \"overlaps,\" where two or more polygons intersect, indicating that the same area is incorrectly assigned to multiple buildings."
+    },
+    {
+      "id": 18,
+      "topic": "Spatial Indexing",
+      "question": "Why is a spatial index like an R-tree necessary for efficient geometric queries on large vector datasets?",
+      "nova_answer": "A spatial index like an R-tree is necessary for efficient geometric queries on large vector datasets because it significantly reduces the search space by organizing spatial data in a hierarchical structure, allowing for faster query response times through spatial partitioning and minimizing the number of data comparisons required."
+    },
+    {
+      "id": 19,
+      "topic": "Coordinate Transformations",
+      "question": "What is a datum shift, and why can converting between NAD83 and WGS84 introduce a small positional error even though both look like similar coordinate systems?",
+      "nova_answer": "A datum shift refers to the difference between two geodetic datums, which can cause positional discrepancies when converting coordinates. Even though NAD83 and WGS84 are both widely used datums, converting between them can introduce a small positional error due to their distinct reference points and ellipsoids, leading to potential misalignments of up to a few meters."
+    },
+    {
+      "id": 20,
+      "topic": "LiDAR",
+      "question": "What does the classification field of a LAS/LAZ point cloud typically encode, and why is ground classification important before deriving a DTM?",
+      "nova_answer": "The classification field in a LAS/LAZ point cloud typically encodes the type of surface each point represents, such as ground, vegetation, or building. Ground classification is crucial before deriving a Digital Terrain Model (DTM) because it ensures that only ground points are used, thereby eliminating noise from non-ground features and improving the accuracy and reliability of the DTM."
+    },
+    {
+      "id": 21,
+      "topic": "LiDAR",
+      "question": "What is the difference between first-return and last-return LiDAR points, and why does that matter for vegetation versus building surface modeling?",
+      "nova_answer": "First-return LiDAR points represent the first instance a laser pulse hits a surface, often capturing the canopy top for vegetation, while last-return points denote the final interaction, typically reaching the ground or building surface. This distinction is crucial as first-returns are more suitable for modeling vegetation canopies, whereas last-returns are essential for accurately modeling building surfaces, ensuring precise elevation data for different surface types."
+    },
+    {
+      "id": 22,
+      "topic": "LiDAR Density",
+      "question": "What does 'points per square meter' mean for a LiDAR dataset, and how does point density affect the minimum building size that can be reliably extracted?",
+      "nova_answer": "'Points per square meter' in a LiDAR dataset refers to the number of laser pulses that hit a specific area, typically measured in square meters. Higher point density increases the likelihood of capturing detailed surface information, allowing for the reliable extraction of smaller buildings by ensuring sufficient data points to accurately delineate their dimensions."
+    },
+    {
+      "id": 23,
+      "topic": "Multimodal Fusion",
+      "question": "Why might combining SAR or LiDAR height data with optical spectral data outperform either data source alone for building extraction?",
+      "nova_answer": "Combining SAR or LiDAR height data with optical spectral data enhances building extraction by leveraging the strengths of each: SAR and LiDAR provide accurate elevation and structural information, while optical data offers detailed surface texture and material properties. This synergy allows for more precise differentiation between buildings and other land cover types."
+    },
+    {
+      "id": 24,
+      "topic": "Accuracy Assessment",
+      "question": "What is Intersection over Union (IoU), and what IoU threshold is commonly used to consider an object detection a true positive?",
+      "nova_answer": "Intersection over Union (IoU) is a metric used to evaluate the accuracy of object detection models by measuring the overlap between the predicted bounding box and the ground truth bounding box. A commonly used IoU threshold to consider an object detection a true positive is 0.5, meaning at least 50% overlap is required."
+    },
+    {
+      "id": 25,
+      "topic": "Accuracy Assessment",
+      "question": "What is the difference between a spatial (geographic block) train/test split and a random pixel split for evaluating a raster classifier, and why does it matter?",
+      "nova_answer": "A spatial train/test split groups contiguous geographic blocks for training and testing, preserving spatial autocorrelation, which is crucial for capturing local patterns and dependencies in the data. In contrast, a random pixel split may include spatially correlated pixels in both training and test sets, potentially leading to overoptimistic accuracy estimates. This matters because it affects the generalizability of the classifier to unseen areas."
+    },
+    {
+      "id": 26,
+      "topic": "Map Projections",
+      "question": "Why is UTM (Universal Transverse Mercator) commonly used as the working coordinate system for local-area raster analysis instead of a global geographic CRS?",
+      "nova_answer": "UTM is commonly used for local-area raster analysis because it minimizes distortion within a limited region, providing high accuracy for measurements and spatial analysis. Unlike global geographic CRS, UTM offers consistent scale and shape across smaller areas, which is crucial for precise local-scale applications."
+    },
+    {
+      "id": 27,
+      "topic": "Data Formats",
+      "question": "What is a GeoJSON, and what is one limitation of GeoJSON for very large vector datasets?",
+      "nova_answer": "GeoJSON is an open standard format for encoding a variety of geographic data structures in JSON, facilitating the use of vector data in web applications. One limitation of GeoJSON for very large vector datasets is its lack of support for efficient spatial indexing, which can result in slow query performance and high memory usage when handling extensive spatial data."
+    },
+    {
+      "id": 28,
+      "topic": "Change Detection",
+      "question": "How would you detect new construction between two time periods using a combination of optical imagery and LiDAR-derived nDSM?",
+      "nova_answer": "To detect new construction between two time periods, I would use multi-temporal optical imagery to identify changes in land cover and land use, then overlay the LiDAR-derived normalized Digital Surface Model (nDSM) to detect height differences indicative of new structures. This combination allows for accurate identification and verification of new constructions."
+    },
+    {
+      "id": 29,
+      "topic": "Slope/Terrain",
+      "question": "How is terrain slope typically derived from a DTM, and what is one common algorithm used for this?",
+      "nova_answer": "Terrain slope is typically derived from a Digital Terrain Model (DTM) by calculating the rate of change in elevation over a specified area. One common algorithm used for this is the finite difference method, which estimates slope by analyzing the elevation differences between a central cell and its neighboring cells."
+    },
+    {
+      "id": 30,
+      "topic": "SAR Building Extraction",
+      "question": "Why does building extraction from SAR imagery (like SpaceNet 6) pose additional challenges compared to optical imagery, such as layover and shadow effects?",
+      "nova_answer": "Building extraction from SAR imagery poses additional challenges due to layover and shadow effects, where layover occurs when topography causes distant objects to appear closer, and shadows result from obstruction by buildings, both of which can distort the radar signal and complicate accurate building delineation. These effects are less prevalent in optical imagery, which relies on visible light and is less influenced by such geometric distortions."
+    }
+  ],
+  "usage": {
+    "inputTokens": 1271,
+    "outputTokens": 2053
+  }
+}
